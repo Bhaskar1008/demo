@@ -1,0 +1,154 @@
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin: 16px;
+  overflow: hidden;
+  border-left: 3px solid #00BCD4;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 16px;
+  border-bottom: 1px solid #E5E7EB;
+}
+
+.date {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.tag {
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: white;
+}
+
+.tag.motor {
+  background-color: #00BCD4;
+}
+
+.tag.travel {
+  background-color: #00BFA5;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  gap: 12px;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #F3F4F6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9CA3AF;
+  font-weight: 500;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-weight: 600;
+  color: #1F2937;
+}
+
+.company {
+  color: #6B7280;
+  font-size: 14px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+.info-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  color: #6B7280;
+  font-size: 12px;
+}
+
+.value {
+  color: #1F2937;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* .status::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+} */
+
+.status.active {
+  color: #10B981;
+}
+
+.status.active::before {
+  background-color: #10B981;
+}
+
+.status.required {
+  color: #F59E0B;
+}
+
+.status.required::before {
+  background-color: #F59E0B;
+}
+
+.view-details {
+  width: 100%;
+  padding: 12px;
+  background: #F3F4F6;
+  border: none;
+  color: #1D428A;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.view-details:hover {
+  background: #E5E7EB;
+}
+
+@media (max-width: 768px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+}
