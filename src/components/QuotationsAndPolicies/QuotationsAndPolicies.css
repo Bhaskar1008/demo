@@ -1,8 +1,9 @@
 .quotations-policies {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  gap: 16px;
-  padding: 16px;
+  grid-gap: 5px;
+  gap: 3px;
+  padding: 10px;
 }
 
 .empty-state {

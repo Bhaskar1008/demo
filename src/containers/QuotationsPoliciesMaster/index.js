@@ -1,10 +1,11 @@
-import React, { useState,useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 import QuotationsAndPolicies from '../../components/QuotationsAndPolicies/QuotationsAndPolicies';
 import { Plus } from 'lucide-react';
 import { Pagination } from 'antd';
-import config from '../../config/config';
+import config from '../../config/api.config';
 import quotationsPoliciesService from '../../services/quotationsPoliciesService';
+import filterIcon from '../../assets/Images/filter.png';
 
 const QuotationsPoliciesMaster = () => {
   const [activeTab, setActiveTab] = useState('quotations');
@@ -13,95 +14,15 @@ const QuotationsPoliciesMaster = () => {
   const [totalCount, setTotalCount] = useState({ quotations: 0, policies: 0 });
   const pageSize = 14;
 
-  const quotationsData = [
-    {
-      date: '12 June 2023',
-      type: 'MOTOR',
-      user: {
-        avatar: 'JD',
-        name: 'Juan Dela Cruz',
-        company: 'DA ALMENDRAS'
-      },
-      quoteType: 'Formal',
-      travelPack: 'PHILIPPINES',
-      travelProduct: 'COMPLETO',
-      premium: '876.64',
-      status: 'ACTIVE',
-      expiry: '09/30/2023',
-      quotationNumber: '3802302004184'
-    },
-    {
-      date: '12 June 2023',
-      type: 'MOTOR',
-      user: {
-        avatar: 'JD',
-        name: 'Juan Dela Cruz',
-        company: 'DA ALMENDRAS'
-      },
-      quoteType: 'Formal',
-      travelPack: 'PHILIPPINES',
-      travelProduct: 'COMPLETO',
-      premium: '876.64',
-      status: 'ACTIVE',
-      expiry: '09/30/2023',
-      quotationNumber: '3802302004184'
-    },
-    {
-      date: '12 June 2023',
-      type: 'TRAVEL',
-      user: {
-        avatar: 'MS',
-        name: 'Maria Santos',
-        company: 'Ketursko Roy'
-      },
-      quoteType: 'Formal',
-      travelPack: 'PHILIPPINES',
-      travelProduct: 'COMPLETO',
-      premium: '876.64',
-      status: 'ACTIVE',
-      expiry: '09/30/2023',
-      quotationNumber: '3802302004184'
-    }
-  ];
+  const quotationsData = [{"date":"12 June 2023","type":"MOTOR","user":{"avatar":"JD","name":"Juan Dela Cruz","company":"DA ALMENDRAS"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184","riskInspectionStatus":"REQUIRED"},{"date":"12 June 2023","type":"MOTOR","user":{"avatar":"JD","name":"Juan Dela Cruz","company":"DA ALMENDRAS"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184"}];
 
-  const policiesData = [
-    {
-      date: '12 June 2023',
-      type: 'TRAVEL',
-      user: {
-        avatar: 'MS',
-        name: 'Maria Santos',
-        company: 'Ketursko Roy'
-      },
-      quoteType: 'Formal',
-      travelPack: 'PHILIPPINES',
-      travelProduct: 'COMPLETO',
-      premium: '876.64',
-      status: 'ACTIVE',
-      expiry: '09/30/2023',
-      quotationNumber: '3802302004184',
-      riskInspectionStatus: 'REQUIRED'
-    },
-    {
-      date: '12 June 2023',
-      type: 'MOTOR',
-      user: {
-        avatar: 'AL',
-        name: 'Ana Lopez',
-        company: 'DA ALMENDRAS'
-      },
-      quoteType: 'Formal',
-      travelPack: 'PHILIPPINES',
-      travelProduct: 'COMPLETO',
-      premium: '876.64',
-      status: 'ACTIVE',
-      expiry: '09/30/2023',
-      quotationNumber: '3802302004184',
-      riskInspectionStatus: 'REQUIRED'
-    }
-  ];
+  const policiesData = [{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184","riskInspectionStatus":"REQUIRED"},{"date":"12 June 2023","type":"MOTOR","user":{"avatar":"AL","name":"Ana Lopez","company":"DA ALMENDRAS"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184","riskInspectionStatus":"REQUIRED"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184","riskInspectionStatus":"REQUIRED"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184","riskInspectionStatus":"REQUIRED"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184","riskInspectionStatus":"REQUIRED"},{"date":"12 June 2023","type":"TRAVEL","user":{"avatar":"MS","name":"Maria Santos","company":"Ketursko Roy"},"quoteType":"Formal","travelPack":"PHILIPPINES","travelProduct":"COMPLETO","premium":"876.64","status":"ACTIVE","expiry":"09/30/2023","quotationNumber":"3802302004184","riskInspectionStatus":"REQUIRED"}];
 
-  const fetchData = useCallback(async () => {
+  useEffect(() => {
+    fetchData();
+  }, [activeTab, current]);
+
+  const fetchData = async () => {
     if (!config.useMockData) {
       try {
         const params = {
@@ -109,7 +30,7 @@ const QuotationsPoliciesMaster = () => {
           pageSize: pageSize,
           type: activeTab
         };
-  
+
         const response = await quotationsPoliciesService.getAll(params);
         setData(response.data);
         setTotalCount(response.totalCount);
@@ -118,19 +39,16 @@ const QuotationsPoliciesMaster = () => {
         setData([]);
       }
     } else {
+      console.log('Using mock data');
       const mockData = activeTab === 'quotations' ? quotationsData : policiesData;
       setData(mockData);
+      console.log('Mock data:', data);
       setTotalCount({
         quotations: quotationsData.length,
         policies: policiesData.length
       });
     }
-  }, [activeTab, current, pageSize]); // include all used values
-  
-  useEffect(() => {
-    fetchData();
-  }, [fetchData]);
-  
+  };
 
   const itemRender = (_, type, originalElement) => {
     if (type === "prev") {
@@ -148,7 +66,7 @@ const QuotationsPoliciesMaster = () => {
 
   return (
     <div className="dashboard">
-      <div className="header">
+      <div className="icare_header">
         <h1>Quotations/Policies</h1>
         <div className="tabs">
           <button 
@@ -166,16 +84,21 @@ const QuotationsPoliciesMaster = () => {
         </div>
       </div>
 
-      <div className="content">
+      <div className="icare_content">
         <div className="toolbar">
           <h2>List Of {activeTab === 'quotations' ? 'Quotations' : 'Policies'}</h2>
-          <button className="filter-button">Filter</button>
+          <button className="filter-button">
+            <img src={filterIcon} alt="Filter" className="filter-icon" />
+            Filter
+          </button>
+
         </div>
         
         <QuotationsAndPolicies data={data} />
 
         <div className="page-holder">
           <Pagination
+            responsive
             current={current}
             onChange={handlePageChange}
             total={totalCount[activeTab]}

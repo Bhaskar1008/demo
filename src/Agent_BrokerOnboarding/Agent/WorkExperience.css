@@ -1,0 +1,85 @@
+.work-container {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: #f8f9fc; */
+  /* padding: 20px; */
+  min-height: 100vh;
+}
+
+.work-card {
+  /* background-color: #fff; */
+  /* padding: 40px 30px; */
+  border-radius: 8px;
+  width: 100%;
+  max-width: 960px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.work-title {
+  color: #ff6a00;
+  margin-bottom: 8px;
+}
+
+.work-subtitle {
+  display: block;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.work-form .ant-form-item-label > label {
+  font-weight: 500;
+}
+
+.work-block {
+  margin-bottom: 20px;
+}
+
+.work-row {
+  display: flex;
+  gap: 20px;
+}
+
+.add-btn {
+  margin-bottom: 20px;
+  color: #ff6a00;
+  border-color: #ff6a00;
+}
+
+.add-btn:hover {
+  background-color: #ffe5d1;
+}
+
+.declaration-title {
+  margin-bottom: 10px;
+  color: #00aec1;
+}
+
+.declaration-group .ant-form-item {
+  margin-bottom: 12px;
+}
+
+.work-btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.back-btn {
+  border: 1px solid #00aec1;
+  color: #00aec1;
+}
+
+.next-btn {
+  background-color: #ff6a00;
+  border-color: #ff6a00;
+}
+
+.next-btn:hover {
+  background-color: #e65c00;
+  border-color: #e65c00;
+}
+
+.work-divider {
+  margin: 20px 0;
+}

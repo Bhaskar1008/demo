@@ -1,0 +1,60 @@
+.education-container {
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* background-color: #f8f9fc; */
+  /* padding: 20px; */
+  min-height: 100vh;
+}
+
+.education-card {
+  /* background-color: #ffffff; */
+  /* padding: 40px 30px; */
+  /* border-radius: 8px; */
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.education-title {
+  color: #ff6a00;
+  margin-bottom: 8px;
+}
+
+.education-subtitle {
+  display: block;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.education-link {
+  color: #00aec1;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.education-form .ant-form-item-label > label {
+  font-weight: 500;
+}
+
+.education-btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.back-btn {
+  border: 1px solid #00aec1;
+  color: #00aec1;
+}
+
+.next-btn {
+  background-color: #ff6a00;
+  border-color: #ff6a00;
+}
+
+.next-btn:hover {
+  background-color: #e65c00;
+  border-color: #e65c00;
+}

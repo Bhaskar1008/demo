@@ -1,5 +1,7 @@
 import React from 'react';
 import './CardComponent.css';
+import carImage from '../../assets/Images/car.png';
+import travelImage from '../../assets/Images/travel.png';
 
 const CardComponent = ({ data }) => {
   const {
@@ -18,9 +20,9 @@ const CardComponent = ({ data }) => {
 
   const getTypeImage = () => {
     return type === 'MOTOR' 
-      ? 'https://images.pexels.com/photos/170811/pexels-photo-170811.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1'
-      : 'https://images.pexels.com/photos/62623/wing-plane-flying-airplane-62623.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&dpr=1';
-  };
+      ? carImage
+      : travelImage;
+  }
 
   return (
     <div className="card">
@@ -34,7 +36,7 @@ const CardComponent = ({ data }) => {
           src={getTypeImage()} 
           alt={type} 
           className="avatar"
-          style={{ objectFit: 'cover' }}
+          style={{ objectFit: 'contain' }}
         />
         <div className="details">
           <div className="name">{user.name}</div>

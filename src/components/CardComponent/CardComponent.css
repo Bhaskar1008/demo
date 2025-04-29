@@ -11,8 +11,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 16px;
-  border-bottom: 1px solid #E5E7EB;
+  padding: 4px 12px;
+  /* border-bottom: 1px solid #E5E7EB; */
+  border: none;
+  background-color: white;
 }
 
 .date {
@@ -40,8 +42,10 @@
 .user-info {
   display: flex;
   align-items: center;
-  padding: 16px;
+  padding: 8px;
+  grid-gap: 12px;
   gap: 12px;
+  border-bottom: 1px solid #141415;
 }
 
 .avatar {
@@ -63,12 +67,14 @@
 
 .name {
   font-weight: 600;
-  color: #1F2937;
+  color: #00AEC1;
+  font-size: 16px;
 }
 
 .company {
-  color: #6B7280;
-  font-size: 14px;
+  color: #444444;
+  font-size: 12px;
+  font-weight: 500;
 }
 
 .card-grid {
@@ -85,14 +91,14 @@
 }
 
 .label {
-  color: #6B7280;
+  color: #444444;
   font-size: 12px;
 }
 
 .value {
-  color: #1F2937;
+  color: #4C4C4C;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .status {
@@ -101,36 +107,28 @@
   gap: 6px;
 }
 
-/* .status::before {
-  content: "";
-  display: inline-block;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-} */
-
 .status.active {
-  color: #10B981;
+  color: #4FBF26;
 }
 
 .status.active::before {
-  background-color: #10B981;
+  background-color: #4FBF26;
 }
 
 .status.required {
-  color: #F59E0B;
+  color: #F18100;
 }
 
 .status.required::before {
-  background-color: #F59E0B;
+  background-color: #F18100;
 }
 
 .view-details {
   width: 100%;
   padding: 12px;
-  background: #F3F4F6;
+  background: #D6F2F5;
   border: none;
-  color: #1D428A;
+  color: #00AEC1;
   font-weight: 600;
   font-size: 14px;
   cursor: pointer;
